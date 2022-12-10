@@ -1,0 +1,79 @@
+﻿@page
+@model Lab9.App.Pages.Items.CreateModel
+
+<br />
+<h2 class="text-info">Создать предмет</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Item.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Item.Name" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.Type"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Item.Type" class="form-control" />
+            </div>
+            <span asp-validation-for="Item.Type" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.RentPrice"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Item.RentPrice" class="form-control" />
+            </div>
+            <span asp-validation-for="Item.RentPrice" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.SizeRu"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Item.SizeRu" class="form-control" />
+            </div>
+            <span asp-validation-for="Item.SizeRu" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.Length"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Item.Length" class="form-control" />
+            </div>
+            <span asp-validation-for="Item.Length" class="text-danger"></span>
+            <br />
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{ 
+    <partial name="_ValidationScriptsPartial" />
+}
