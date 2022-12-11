@@ -13,9 +13,9 @@ namespace Lab9.App.DAL
 
             var countries = new List<Country>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
-                countries.Add(new Country { Name = $"name{i}", Items = GenerateItems()});
+                countries.Add(new Country { Name = $"country{i}", Items = GenerateItems()});
             }
 
 
@@ -31,7 +31,7 @@ namespace Lab9.App.DAL
             for (int i = 0; i < 10; i++)
             {
                 int index = rnd.Next(1000);
-                items.Add(new Item { Name = $"name{index}", Type = $"type{index}" });
+                items.Add(new Item { Name = $"item_name{index}", Type = $"item_type{index}" });
             }
             return items;
         }

@@ -19,7 +19,10 @@ namespace Lab9.App.Pages.Items
 
         public async Task OnGet()
         {
-            Items = await _db.Items.ToListAsync();
+            Items = await _db.Items
+                .AsNoTracking()
+                .Include(x => x.Country)
+                .ToListAsync();
         }
 
         public async Task<IActionResult> OnPostDelete(int id)

@@ -18,50 +18,62 @@
                 <table class="table table-striped border">
                     <tr class="table-secondary">
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Id"></label>
+                            <label asp-for="Items.FirstOrDefault().Id">Id</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Name"></label>
+                            <label asp-for="Items.FirstOrDefault().Name">Название</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Type"></label>
+                            <label asp-for="Items.FirstOrDefault().Type">Тип</label>
                         </th>
                        <th>
-                            <label asp-for="Items.FirstOrDefault().RentPrice"></label>
+                            <label asp-for="Items.FirstOrDefault().RentPrice">Цена аренды</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().SizeRu"></label>
+                            <label asp-for="Items.FirstOrDefault().SizeRu">Размер RU</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Length"></label>
+                            <label asp-for="Items.FirstOrDefault().Length">Длина</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Width">Ширина</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Country.Name">Страна - производитель</label>
                         </th>
                         <th>
                         </th>
                     </tr>
-                    @foreach (var country in Model.Items)
+                    @foreach (var item in Model.Items)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(m => country.Id)
+                                @Html.DisplayFor(m => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => country.Name)
+                                @Html.DisplayFor(m => item.Name)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => country.Type)
+                                @Html.DisplayFor(m => item.Type)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => country.RentPrice)
+                                @Html.DisplayFor(m => item.RentPrice)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => country.SizeRu)
+                                @Html.DisplayFor(m => item.SizeRu)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => country.Length)
+                                @Html.DisplayFor(m => item.Length)
                             </td>
                             <td>
-                                <button asp-page-handler="Delete" asp-route-id="@country.Id" class="btn btn-danger btn-sm">Delete</button>
-                                <a asp-page="Edit" asp-route-id="@country.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                                @Html.DisplayFor(m => item.Width)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Country.Name)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Удалить</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Редактировать</a>
                             </td>
                         </tr>
                     }

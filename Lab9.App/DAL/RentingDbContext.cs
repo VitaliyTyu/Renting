@@ -10,6 +10,10 @@ namespace Lab9.App.DAL
 
         public DbSet<Item> Items => Set<Item>();
         public DbSet<Country> Countries => Set<Country>();
+        public DbSet<Rent> Rents => Set<Rent>();
+        public DbSet<Penalty> Penalties => Set<Penalty>();
+        public DbSet<Customer> Customers => Set<Customer>();
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -18,8 +22,6 @@ namespace Lab9.App.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //builder.ApplyConfiguration(new ItemConfiguration());
-            //builder.ApplyConfiguration(new CountryConfiguration());
 
             base.OnModelCreating(builder);
         }

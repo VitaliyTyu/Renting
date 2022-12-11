@@ -2,6 +2,7 @@
 using Lab9.App.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab9.App.Pages.Items
 {
@@ -15,19 +16,31 @@ namespace Lab9.App.Pages.Items
         }
 
         [BindProperty]
-        public ItemViewModel Item { get; set; }
+        public Item Item { get; set; }
 
-        public async Task OnGet(int id)
+        public async Task<IActionResult> OnGet(int? id)
         {
-            var item = await _db.Items.FindAsync(id);
-            Item = item.MapToItemVM();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (Item == null)
+            {
+                return NotFound();
+            }
+
+            return Page();
         }
 
         public async Task<IActionResult> OnPost()
         {
             if (ModelState.IsValid)
             {
-                var item = await _db.Items.FindAsync(Item.Id);
+                var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == Item.Id);
+
                 item.Name = Item.Name;
                 item.Type = Item.Type;
                 item.RentPrice = Item.RentPrice;
