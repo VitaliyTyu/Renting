@@ -65,6 +65,20 @@
         </div>
 
         <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Item.Country" class="control-label"></label>
+            </div>
+            <div class="col-6">
+                <select asp-for="Item.CountryId" class="form-control"
+                        asp-items="@Model.CountryNameSL">
+                    <option value="">Выбор страны</option>
+                </select>
+                <span asp-validation-for="Item.CountryId" class="text-danger" />
+            </div>
+            <br />
+        </div>
+
+        <div class="form-group row" style="margin-top: 10px">
             <div class="col-3 offset-3">
                 <input type="submit" value="Update" class="btn btn-primary form-control" />
             </div>

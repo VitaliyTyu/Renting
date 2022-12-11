@@ -7,8 +7,7 @@ namespace Lab9.App.DAL.Entities
     public class Item
     {
         public int Id { get; set; }
-        [StringLength(60)]
-        [Required]
+        [StringLength(60), Required]
         public string Name { get; set; }
         [StringLength(60)]
         public string? Type { get; set; }

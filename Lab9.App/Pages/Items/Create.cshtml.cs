@@ -25,25 +25,8 @@ namespace Lab9.App.Pages.Items
             return Page();
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            //var emptyCourse = new Item();
-
-            //if (await TryUpdateModelAsync<Item>(
-            //     emptyCourse,
-            //     "item",   // Prefix for form value.
-            //     x => x.Id, x => x.Name, x => x.Type, x => x.RentPrice, x => x.SizeRu, x => x.CountryId))
-            //{
-            //    _db.Items.Add(emptyCourse);
-            //    await _db.SaveChangesAsync();
-            //    return RedirectToPage("./Index");
-            //}
-
-            //// Select DepartmentID if TryUpdateModelAsync fails.
-            //PopulateDepartmentsDropDownList(_db, emptyCourse.CountryId);
-            //return Page();
-
-
             if (ModelState.IsValid)
             {
                 await _db.Items.AddAsync(Item);

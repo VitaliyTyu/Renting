@@ -19,12 +19,16 @@ namespace Lab9.App.Pages.Countries
 
         public async Task OnGet()
         {
-            Countries = await _db.Countries.ToListAsync();
+            Countries = await _db.Countries
+                .AsNoTracking()
+                .ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostDelete(int id)
+        public async Task<IActionResult> OnPostDelete(int? id)
         {
-            var country = await _db.Countries.FindAsync(id);
+            var country = await _db.Countries
+                .Include(x => x.Items)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (country == null)
                 return NotFound();
