@@ -1,0 +1,92 @@
+﻿@page
+@model Lab9.App.Pages.Penalties.IndexModel
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Предметы</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Создать предмет</a>
+    </div>
+
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Items.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Id">Id</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Name">Название</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Type">Тип</label>
+                        </th>
+                       <th>
+                            <label asp-for="Items.FirstOrDefault().RentPrice">Цена аренды</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().SizeRu">Размер RU</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Length">Длина</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Width">Ширина</label>
+                        </th>
+                        <th>
+                            <label asp-for="Items.FirstOrDefault().Country.Name">Страна - производитель</label>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.RentPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.SizeRu)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Length)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Width)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Country.Name)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Удалить</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Редактировать</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Нет предметов</p>
+            }
+        </form>
+    </div>
+</div>
+
+
+
+

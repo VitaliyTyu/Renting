@@ -1,5 +1,5 @@
 ﻿@page
-@model Lab9.App.Pages.Items.CreateModel
+@model Lab9.App.Pages.Penalties.CreateModel
 
 <br />
 <h2 class="text-info">Создать предмет</h2>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-6">
                 <select asp-for="Item.CountryId" class="form-control"
-                        asp-items="@Model.CountryNameSL">
+                        asp-items="@Model.RentIdSL">
                     <option value="">Выбор страны</option>
                 </select>
                 <span asp-validation-for="Item.CountryId" class="text-danger" />

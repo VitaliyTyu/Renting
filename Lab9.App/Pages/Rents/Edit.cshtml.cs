@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Items
+namespace Lab9.App.Pages.Rents
 {
-    public class EditModel : CountryNamePageModel
+    public class EditModel : RentsPageModel
     {
         private RentingDbContext _db;
 
@@ -16,21 +16,24 @@ namespace Lab9.App.Pages.Items
         }
 
         [BindProperty]
-        public Item Item { get; set; }
+        public Rent Rent { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            Item = await _db.Items
-                .Include(c => c.Country)
+            Rent = await _db.Rents
+                .Include(c => c.Item)
+                .Include(c => c.Customer)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Item == null)
+            if (Rent == null)
                 return NotFound();
 
-            CountryDropDownList(_db, Item.CountryId);
+            ItemDropDownList(_db, Rent.ItemId);
+            CustomerDropDownList(_db, Rent.CustomerId);
+
             return Page();
         }
 
@@ -38,20 +41,16 @@ namespace Lab9.App.Pages.Items
         {
             if (ModelState.IsValid)
             {
-                var item = await _db.Items
-                    .Include(x => x.Country)
-                    .FirstOrDefaultAsync(x => x.Id == Item.Id);
+                var rent = await _db.Rents.FirstOrDefaultAsync(x => x.Id == Rent.Id);
 
-                if (item == null)
+                if (rent == null)
                     return NotFound();
 
-                item.Name = Item.Name;
-                item.Type = Item.Type;
-                item.RentPrice = Item.RentPrice;
-                item.SizeRu = Item.SizeRu;
-                item.Length = Item.Length;
-                item.Width = Item.Width;
-                item.CountryId = Item.CountryId;
+                rent.StartDate = Rent.StartDate;
+                rent.ExpectedEndDate = Rent.ExpectedEndDate;
+                rent.ActualEndDate = Rent.ActualEndDate;
+                rent.CustomerId = Rent.CustomerId;
+                rent.ItemId = Rent.ItemId;
 
 
                 await _db.SaveChangesAsync();
@@ -59,7 +58,9 @@ namespace Lab9.App.Pages.Items
                 return RedirectToPage("Index");
             }
 
-            CountryDropDownList(_db);
+            ItemDropDownList(_db);
+            CustomerDropDownList(_db);
+
             return Page();
         }
     }

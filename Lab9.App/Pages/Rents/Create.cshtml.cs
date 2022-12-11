@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Items
+namespace Lab9.App.Pages.Rents
 {
-    public class CreateModel : CountryNamePageModel
+    public class CreateModel : RentsPageModel
     {
         private readonly RentingDbContext _db;
 
         [BindProperty]
-        public Item Item { get; set; }
+        public Rent Rent { get; set; }
 
         public CreateModel(RentingDbContext db)
         {
@@ -21,20 +21,22 @@ namespace Lab9.App.Pages.Items
 
         public IActionResult OnGet()
         {
-            CountryDropDownList(_db);
+            ItemDropDownList(_db);
+            CustomerDropDownList(_db);
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (await TryUpdateModelAsync<Item>(Item))
+            if (ModelState.IsValid)
             {
-                _db.Items.Add(Item);
+                await _db.Rents.AddAsync(Rent);
                 await _db.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("Index");
             }
 
-            CountryDropDownList(_db);
+            ItemDropDownList(_db);
+            CustomerDropDownList(_db);
             return Page();
         }
     }

@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Items
+namespace Lab9.App.Pages.Penalties
 {
-    public class EditModel : CountryNamePageModel
+    public class EditModel : PenaltiesPageModel
     {
         private RentingDbContext _db;
 

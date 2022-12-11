@@ -3,7 +3,7 @@ using Lab9.App.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Lab9.App.Pages.Countries
+namespace Lab9.App.Pages.Customers
 {
     public class CreateModel : PageModel
     {
@@ -15,7 +15,7 @@ namespace Lab9.App.Pages.Countries
         }
 
         [BindProperty]
-        public Country Country { get; set; }
+        public Customer Customer { get; set; }
 
         public void OnGet()
         {
@@ -26,7 +26,7 @@ namespace Lab9.App.Pages.Countries
         {
             if (ModelState.IsValid)
             {
-                await _db.Countries.AddAsync(Country);
+                await _db.Customers.AddAsync(Customer);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
             }

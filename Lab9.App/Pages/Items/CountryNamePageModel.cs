@@ -1,4 +1,5 @@
 using Lab9.App.DAL;
+using Lab9.App.DAL.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;

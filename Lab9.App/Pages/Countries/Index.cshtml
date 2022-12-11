@@ -18,13 +18,13 @@
                 <table class="table table-striped border">
                     <tr class="table-secondary">
                         <th>
-                            <label asp-for="Countries.FirstOrDefault().Id"></label>
+                            <label asp-for="Countries.FirstOrDefault().Id">Id</label>
                         </th>
                         <th>
-                            <label asp-for="Countries.FirstOrDefault().Name"></label>
+                            <label asp-for="Countries.FirstOrDefault().Name">Название</label>
                         </th>
                         <th>
-                            <label asp-for="Countries.FirstOrDefault().ApprovalRating"></label>
+                            <label asp-for="Countries.FirstOrDefault().ApprovalRating">Рейтинг доверия</label>
                         </th>
                         <th>
 
@@ -43,8 +43,8 @@
                                 @Html.DisplayFor(m => country.ApprovalRating)
                             </td>
                             <td>
-                                <button asp-page-handler="Delete" asp-route-id="@country.Id" class="btn btn-danger btn-sm">Delete</button>
-                                <a asp-page="Edit" asp-route-id="@country.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                                <button asp-page-handler="Delete" asp-route-id="@country.Id" class="btn btn-danger btn-sm">Удалить</button>
+                                <a asp-page="Edit" asp-route-id="@country.Id" class="btn btn-success btn-sm text-white">Редактировать</a>
                             </td>
                         </tr>
                     }

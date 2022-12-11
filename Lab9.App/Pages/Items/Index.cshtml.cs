@@ -25,9 +25,12 @@ namespace Lab9.App.Pages.Items
                 .ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostDelete(int id)
+        public async Task<IActionResult> OnPostDelete(int? id)
         {
-            var item = await _db.Items.FindAsync(id);
+            if (id == null)
+                return NotFound();
+
+            var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
 
             if (item == null)
                 return NotFound();

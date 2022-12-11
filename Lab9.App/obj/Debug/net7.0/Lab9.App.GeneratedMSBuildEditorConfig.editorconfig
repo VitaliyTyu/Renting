@@ -28,6 +28,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRyaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +54,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Items/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Penalties/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVuYWx0aWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Penalties/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVuYWx0aWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Penalties/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVuYWx0aWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Rents/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Rents/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Rents/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gexop/OneDrive/Рабочий стол/бд/8-9/Lab9.App/Lab9.App/Pages/Shared/_ValidationScriptsPartial.cshtml]

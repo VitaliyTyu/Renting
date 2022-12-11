@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Items
+namespace Lab9.App.Pages.Penalties
 {
-    public class CreateModel : CountryNamePageModel
+    public class CreateModel : PenaltiesPageModel
     {
         private readonly RentingDbContext _db;
 

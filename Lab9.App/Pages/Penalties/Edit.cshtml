@@ -1,12 +1,13 @@
 ﻿@page
-@model Lab9.App.Pages.Items.CreateModel
+@model Lab9.App.Pages.Penalties.EditModel
 
 <br />
-<h2 class="text-info">Создать предмет</h2>
+<h2 class="text-info">Редактирование предмета</h2>
 <br />
 
 <div class="border container" style="padding:30px;">
     <form method="post">
+        <input type="hidden" asp-for="Item.Id" />
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-3">
@@ -80,7 +81,7 @@
             </div>
             <div class="col-6">
                 <select asp-for="Item.CountryId" class="form-control"
-                        asp-items="@Model.CountryNameSL">
+                        asp-items="@Model.RentIdSL">
                     <option value="">Выбор страны</option>
                 </select>
                 <span asp-validation-for="Item.CountryId" class="text-danger" />
@@ -90,7 +91,7 @@
 
         <div class="form-group row" style="margin-top: 10px">
             <div class="col-3 offset-3">
-                <input type="submit" value="Создать" class="btn btn-primary form-control" />
+                <input type="submit" value="Изменить" class="btn btn-primary form-control" />
             </div>
             <div class="col-3">
                 <a asp-page="Index" class="btn btn-success form-control">Назад</a>
@@ -99,6 +100,6 @@
     </form>
 </div>
 
-@section Scripts{ 
+@section Scripts{
     <partial name="_ValidationScriptsPartial" />
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Countries
+namespace Lab9.App.Pages.Customers
 {
     public class IndexModel : PageModel
     {
@@ -15,11 +15,11 @@ namespace Lab9.App.Pages.Countries
             _db = db;
         }
 
-        public List<Country> Countries { get; set; }
+        public List<Customer> Customers { get; set; }
 
         public async Task OnGet()
         {
-            Countries = await _db.Countries
+            Customers = await _db.Customers
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -28,15 +28,15 @@ namespace Lab9.App.Pages.Countries
         {
             if (id == null)
                 return NotFound();
-            
-            var country = await _db.Countries
-                .Include(x => x.Items)
+
+            var customer = await _db.Customers
+                .Include(x => x.Rents)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (country == null)
+            if (customer == null)
                 return NotFound();
 
-            _db.Countries.Remove(country);
+            _db.Customers.Remove(customer);
 
             await _db.SaveChangesAsync();
 

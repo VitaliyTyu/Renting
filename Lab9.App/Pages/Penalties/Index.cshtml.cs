@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Countries
+namespace Lab9.App.Pages.Penalties
 {
     public class IndexModel : PageModel
     {
@@ -15,12 +15,13 @@ namespace Lab9.App.Pages.Countries
             _db = db;
         }
 
-        public List<Country> Countries { get; set; }
+        public List<Item> Items { get; set; }
 
         public async Task OnGet()
         {
-            Countries = await _db.Countries
+            Items = await _db.Items
                 .AsNoTracking()
+                .Include(x => x.Country)
                 .ToListAsync();
         }
 
@@ -28,15 +29,13 @@ namespace Lab9.App.Pages.Countries
         {
             if (id == null)
                 return NotFound();
-            
-            var country = await _db.Countries
-                .Include(x => x.Items)
-                .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (country == null)
+            var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (item == null)
                 return NotFound();
 
-            _db.Countries.Remove(country);
+            _db.Items.Remove(item);
 
             await _db.SaveChangesAsync();
 

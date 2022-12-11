@@ -19,11 +19,5 @@ namespace Lab9.App.DAL
         {
             optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
         }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-
-            base.OnModelCreating(builder);
-        }
     }
 }

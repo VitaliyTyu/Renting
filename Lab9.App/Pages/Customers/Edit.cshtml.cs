@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Countries
+namespace Lab9.App.Pages.Customers
 {
     public class EditModel : PageModel
     {
@@ -16,16 +16,16 @@ namespace Lab9.App.Pages.Countries
         }
 
         [BindProperty]
-        public Country Country { get; set; }
+        public Customer Customer { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            Country = await _db.Countries.FirstOrDefaultAsync(x => x.Id == id);
+            Customer = await _db.Customers.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (Country == null)
+            if (Customer == null)
                 return NotFound();
 
             return Page();
@@ -35,9 +35,13 @@ namespace Lab9.App.Pages.Countries
         {
             if (ModelState.IsValid)
             {
-                var country = await _db.Countries.FirstOrDefaultAsync(x => x.Id == Country.Id);
-                country.Name = Country.Name;
-                country.ApprovalRating = Country.ApprovalRating;
+                var customer = await _db.Customers.FirstOrDefaultAsync(x => x.Id == Customer.Id);
+                customer.Name = Customer.Name;
+                customer.Age = Customer.Age;
+                customer.Height = Customer.Height;
+                customer.Weight = Customer.Weight;
+                customer.ShoeSizeRu = Customer.ShoeSizeRu;
+                customer.ClothingSizeRu = Customer.ClothingSizeRu;
 
                 await _db.SaveChangesAsync();
 
