@@ -30,7 +30,9 @@ namespace Lab9.App.Pages.Items
             if (id == null)
                 return NotFound();
 
-            var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
+            var item = await _db.Items
+                .Include(x => x.Rents)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (item == null)
                 return NotFound();

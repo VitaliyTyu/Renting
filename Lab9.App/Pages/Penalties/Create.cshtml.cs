@@ -12,7 +12,7 @@ namespace Lab9.App.Pages.Penalties
         private readonly RentingDbContext _db;
 
         [BindProperty]
-        public Item Item { get; set; }
+        public Penalty Penalty { get; set; }
 
         public CreateModel(RentingDbContext db)
         {
@@ -21,20 +21,20 @@ namespace Lab9.App.Pages.Penalties
 
         public IActionResult OnGet()
         {
-            CountryDropDownList(_db);
+            RentsDropDownList(_db);
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (await TryUpdateModelAsync<Item>(Item))
+            if (await TryUpdateModelAsync<Penalty>(Penalty))
             {
-                _db.Items.Add(Item);
+                _db.Penalties.Add(Penalty);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
 
-            CountryDropDownList(_db);
+            RentsDropDownList(_db);
             return Page();
         }
     }

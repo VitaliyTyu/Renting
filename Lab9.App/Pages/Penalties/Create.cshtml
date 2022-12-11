@@ -2,88 +2,45 @@
 @model Lab9.App.Pages.Penalties.CreateModel
 
 <br />
-<h2 class="text-info">Создать предмет</h2>
+<h2 class="text-info">Создать штраф</h2>
 <br />
+
 
 <div class="border container" style="padding:30px;">
     <form method="post">
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Item.Name">Название</label>
+                <label asp-for="Penalty.Type">Тип</label>
             </div>
             <div class="col-6">
-                <input asp-for="Item.Name" class="form-control" />
+                <input asp-for="Penalty.Type" class="form-control" />
             </div>
-            <span asp-validation-for="Item.Name" class="text-danger"></span>
+            <span asp-validation-for="Penalty.Type" class="text-danger"></span>
             <br />
         </div>
 
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Item.Type">Тип</label>
+                <label asp-for="Penalty.Price">Стоимость</label>
             </div>
             <div class="col-6">
-                <input asp-for="Item.Type" class="form-control" />
+                <input asp-for="Penalty.Price" class="form-control" />
             </div>
-            <span asp-validation-for="Item.Type" class="text-danger"></span>
+            <span asp-validation-for="Penalty.Price" class="text-danger"></span>
             <br />
         </div>
 
         <div class="form-group row">
             <div class="col-3">
-                <label asp-for="Item.RentPrice">Цена аренды</label>
+                <label asp-for="Penalty.Rent" class="control-label">Id аренды</label>
             </div>
             <div class="col-6">
-                <input asp-for="Item.RentPrice" class="form-control" />
-            </div>
-            <span asp-validation-for="Item.RentPrice" class="text-danger"></span>
-            <br />
-        </div>
-
-        <div class="form-group row">
-            <div class="col-3">
-                <label asp-for="Item.SizeRu">Размер RU</label>
-            </div>
-            <div class="col-6">
-                <input asp-for="Item.SizeRu" class="form-control" />
-            </div>
-            <span asp-validation-for="Item.SizeRu" class="text-danger"></span>
-            <br />
-        </div>
-
-        <div class="form-group row">
-            <div class="col-3">
-                <label asp-for="Item.Length">Длина</label>
-            </div>
-            <div class="col-6">
-                <input asp-for="Item.Length" class="form-control" />
-            </div>
-            <span asp-validation-for="Item.Length" class="text-danger"></span>
-            <br />
-        </div>
-
-        <div class="form-group row">
-            <div class="col-3">
-                <label asp-for="Item.Width">Ширина</label>
-            </div>
-            <div class="col-6">
-                <input asp-for="Item.Width" class="form-control" />
-            </div>
-            <span asp-validation-for="Item.Width" class="text-danger"></span>
-            <br />
-        </div>
-
-        <div class="form-group row">
-            <div class="col-3">
-                <label asp-for="Item.Country" class="control-label">Страна - производитель</label>
-            </div>
-            <div class="col-6">
-                <select asp-for="Item.CountryId" class="form-control"
+                <select asp-for="Penalty.RentId" class="form-control"
                         asp-items="@Model.RentIdSL">
-                    <option value="">Выбор страны</option>
+                    <option value="">Выбор аренды</option>
                 </select>
-                <span asp-validation-for="Item.CountryId" class="text-danger" />
+                <span asp-validation-for="Penalty.RentId" class="text-danger" />
             </div>
             <br />
         </div>

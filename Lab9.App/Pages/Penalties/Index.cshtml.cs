@@ -15,13 +15,13 @@ namespace Lab9.App.Pages.Penalties
             _db = db;
         }
 
-        public List<Item> Items { get; set; }
+        public List<Penalty> Penalties { get; set; }
 
         public async Task OnGet()
         {
-            Items = await _db.Items
+            Penalties = await _db.Penalties
                 .AsNoTracking()
-                .Include(x => x.Country)
+                .Include(x => x.Rent)
                 .ToListAsync();
         }
 
@@ -30,12 +30,13 @@ namespace Lab9.App.Pages.Penalties
             if (id == null)
                 return NotFound();
 
-            var item = await _db.Items.FirstOrDefaultAsync(x => x.Id == id);
+            var item = await _db.Penalties
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (item == null)
                 return NotFound();
 
-            _db.Items.Remove(item);
+            _db.Penalties.Remove(item);
 
             await _db.SaveChangesAsync();
 

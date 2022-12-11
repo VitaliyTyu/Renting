@@ -10,9 +10,9 @@ namespace Lab9.App.Pages.Penalties
     {
         public SelectList RentIdSL { get; set; }
 
-        public void CountryDropDownList(RentingDbContext _context, object selectedvalue = null)
+        public void RentsDropDownList(RentingDbContext _context, object selectedvalue = null)
         {
-            var query = _context.Countries.OrderBy(x => x.Name);
+            var query = _context.Rents.OrderBy(x => x.Id);
 
             RentIdSL = new SelectList(query.AsNoTracking(),
                         "Id", "Id", selectedvalue);

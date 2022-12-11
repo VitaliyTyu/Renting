@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Rents
+namespace Lab9.App.Pages
 {
     public class EditModel : RentsPageModel
     {

@@ -1,13 +1,12 @@
 ﻿@page
-@model Lab9.App.Pages.Rents.EditModel
+@model Lab9.App.Pages.CreateModel
 
 <br />
-<h2 class="text-info">Редактирование предмета</h2>
+<h2 class="text-info">Создать аренду</h2>
 <br />
 
 <div class="border container" style="padding:30px;">
     <form method="post">
-        <input type="hidden" asp-for="Rent.Id" />
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         <div class="form-group row">
             <div class="col-3">
@@ -72,7 +71,7 @@
 
         <div class="form-group row" style="margin-top: 10px">
             <div class="col-3 offset-3">
-                <input type="submit" value="Изменить" class="btn btn-primary form-control" />
+                <input type="submit" value="Создать" class="btn btn-primary form-control" />
             </div>
             <div class="col-3">
                 <a asp-page="Index" class="btn btn-success form-control">Назад</a>
@@ -81,6 +80,6 @@
     </form>
 </div>
 
-@section Scripts{
+@section Scripts{ 
     <partial name="_ValidationScriptsPartial" />
 }

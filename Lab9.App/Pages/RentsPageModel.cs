@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lab9.App.Pages.Rents
+namespace Lab9.App.Pages
 {
     public class RentsPageModel : PageModel
     {

@@ -16,21 +16,21 @@ namespace Lab9.App.Pages.Penalties
         }
 
         [BindProperty]
-        public Item Item { get; set; }
+        public Penalty Penalty { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
                 return NotFound();
 
-            Item = await _db.Items
-                .Include(c => c.Country)
+            Penalty = await _db.Penalties
+                .Include(c => c.Rent)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Item == null)
+            if (Penalty == null)
                 return NotFound();
 
-            CountryDropDownList(_db, Item.CountryId);
+            RentsDropDownList(_db, Penalty.RentId);
             return Page();
         }
 
@@ -38,28 +38,23 @@ namespace Lab9.App.Pages.Penalties
         {
             if (ModelState.IsValid)
             {
-                var item = await _db.Items
-                    .Include(x => x.Country)
-                    .FirstOrDefaultAsync(x => x.Id == Item.Id);
+                var penalty = await _db.Penalties
+                    .Include(x => x.Rent)
+                    .FirstOrDefaultAsync(x => x.Id == Penalty.Id);
 
-                if (item == null)
+                if (penalty == null)
                     return NotFound();
 
-                item.Name = Item.Name;
-                item.Type = Item.Type;
-                item.RentPrice = Item.RentPrice;
-                item.SizeRu = Item.SizeRu;
-                item.Length = Item.Length;
-                item.Width = Item.Width;
-                item.CountryId = Item.CountryId;
-
+                penalty.Type = Penalty.Type;
+                penalty.Price = Penalty.Price;
+                penalty.RentId = Penalty.RentId;
 
                 await _db.SaveChangesAsync();
 
                 return RedirectToPage("Index");
             }
 
-            CountryDropDownList(_db);
+            RentsDropDownList(_db);
             return Page();
         }
     }

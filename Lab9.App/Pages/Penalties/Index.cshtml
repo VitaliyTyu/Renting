@@ -4,72 +4,47 @@
 <br />
 <div class="container row p-0 m-0">
     <div class="col-9">
-        <h2 class="text-info">Предметы</h2>
+        <h2 class="text-info">Штрафы</h2>
     </div>
     <div class="col-3">
-        <a asp-page="Create" class="btn btn-info form-control text-white">Создать предмет</a>
+        <a asp-page="Create" class="btn btn-info form-control text-white">Создать штраф</a>
     </div>
-
 
     <div class="col-12 border p-3 mt-3">
         <form method="post">
-            @if (Model.Items.Count() > 0)
+            @if (Model.Penalties.Count() > 0)
             {
                 <table class="table table-striped border">
                     <tr class="table-secondary">
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Id">Id</label>
+                            <label asp-for="Penalties.FirstOrDefault().Id">Id</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Name">Название</label>
+                            <label asp-for="Penalties.FirstOrDefault().Type">Название</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().Type">Тип</label>
-                        </th>
-                       <th>
-                            <label asp-for="Items.FirstOrDefault().RentPrice">Цена аренды</label>
+                            <label asp-for="Penalties.FirstOrDefault().Price">Тип</label>
                         </th>
                         <th>
-                            <label asp-for="Items.FirstOrDefault().SizeRu">Размер RU</label>
-                        </th>
-                        <th>
-                            <label asp-for="Items.FirstOrDefault().Length">Длина</label>
-                        </th>
-                        <th>
-                            <label asp-for="Items.FirstOrDefault().Width">Ширина</label>
-                        </th>
-                        <th>
-                            <label asp-for="Items.FirstOrDefault().Country.Name">Страна - производитель</label>
+                            <label asp-for="Penalties.FirstOrDefault().Rent.Id">Id аренды</label>
                         </th>
                         <th>
                         </th>
                     </tr>
-                    @foreach (var item in Model.Items)
+                    @foreach (var item in Model.Penalties)
                     {
                         <tr>
                             <td>
                                 @Html.DisplayFor(m => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => item.Name)
-                            </td>
-                            <td>
                                 @Html.DisplayFor(m => item.Type)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => item.RentPrice)
+                                @Html.DisplayFor(m => item.Price)
                             </td>
                             <td>
-                                @Html.DisplayFor(m => item.SizeRu)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.Length)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.Width)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(m => item.Country.Name)
+                                @Html.DisplayFor(m => item.Rent.Id)
                             </td>
                             <td>
                                 <button asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Удалить</button>
@@ -81,7 +56,7 @@
             }
             else
             {
-                <p>Нет предметов</p>
+                <p>Нет штрафов</p>
             }
         </form>
     </div>

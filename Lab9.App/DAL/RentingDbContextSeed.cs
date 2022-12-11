@@ -9,9 +9,9 @@ namespace Lab9.App.DAL
             if (db.Items.Any())
                 return;
 
-            var country1 = new Country() { Name = "Китай" };
-            var country2 = new Country() { Name = "Россия" };
-            var country3 = new Country() { Name = "Норвегия" };
+            var country1 = new Country() { Name = "Китай", ApprovalRating = 8 };
+            var country2 = new Country() { Name = "Россия", ApprovalRating = 7 };
+            var country3 = new Country() { Name = "Норвегия", ApprovalRating = 6 };
             await db.Countries.AddRangeAsync(country1, country2, country3);
 
 
@@ -35,7 +35,8 @@ namespace Lab9.App.DAL
             var rent5 = new Rent() { StartDate = new DateTime(2022, 12, 5), ExpectedEndDate = new DateTime(2022, 12, 6), Customer = customer3, Item = item3 };
             await db.Rents.AddRangeAsync(rent1, rent2, rent3, rent4, rent5);
 
-
+            var penalty1 = new Penalty() { Type = "Поломка снаряжения", Price = 1000m, Rent = rent1 };
+            await db.Penalties.AddRangeAsync(penalty1);
 
             await db.SaveChangesAsync();
         }
